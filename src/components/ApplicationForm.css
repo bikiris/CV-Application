@@ -1,0 +1,13 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Form > * {
+    /* Your CSS properties here */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
