@@ -2,8 +2,14 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-const AddField = ({ value }) => {
+const AddField = ({ value, onChange }) => {
     const [field, setField] = useState("");
+
+    const handleInputChange = (e) => {
+        setField(e.target.value);
+        onChange(e.target.value);
+    };
+
     let type = "text";
 
     if (value.toUpperCase().includes("DATE")) {
@@ -16,9 +22,7 @@ const AddField = ({ value }) => {
         type = "text";
     }
 
-    const handleInputChange = (e) => {
-        setField(e.target.value);
-    };
+    
 
     const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
 
@@ -32,6 +36,7 @@ const AddField = ({ value }) => {
 
 AddField.propTypes = {
     value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default AddField;

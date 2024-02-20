@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import AddField from './AddField';
 
-const AddSection = ({ sectionName, fields }) => {
+const AddSection = ({ sectionName, fields, onInputChange }) => {
     const [isVisible, setIsVisible] = useState(true);
     // creates ref at the end of the form allow to focus to the end of the form
     const endOfFormRef = useRef(null);
@@ -21,7 +21,7 @@ const AddSection = ({ sectionName, fields }) => {
             </button>
             <div className={`toggleable-content ${isVisible ? 'visible' : 'hidden'}`}>
                 {fields.map((field) => (
-                    <AddField key={field} value={field} type="text" />
+                    <AddField key={field} value={field} type="text" onChange={(value) => onInputChange(sectionName, field, value)} />
                 ))}
                 <div ref={endOfFormRef}></div>
             </div>
@@ -33,6 +33,7 @@ const AddSection = ({ sectionName, fields }) => {
 AddSection.propTypes = {
     sectionName: PropTypes.string.isRequired,
     fields: PropTypes.array.isRequired,
+    onInputChange: PropTypes.func.isRequired,
 };
 
 export default AddSection;
