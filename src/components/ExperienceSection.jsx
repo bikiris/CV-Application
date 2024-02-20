@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function ExperienceSection() {
     const [jobTitle,setJobTitle] = useState("");
@@ -6,11 +6,23 @@ function ExperienceSection() {
     const [startDate,setStartDate] = useState("");
     const [endDate,setEndDate] = useState("");
     const [location,setLocation] = useState("");
+    const [isVisible, setIsVisible] = useState(true);
+    // creates ref at the end of the form allow to focus to the end of the form
+    const endOfFormRef = useRef(null);
+
+    useEffect(() => {
+        if (isVisible && endOfFormRef.current) {
+            endOfFormRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [isVisible]);
 
     return (
         <div>
-            <h1>Experience</h1>
-            <div>
+            <h2>Experience</h2>
+            <button onClick={() => setIsVisible(!isVisible)}>
+                {isVisible ? 'Hide' : 'Show'}
+            </button>
+            <div className={`toggleable-content ${isVisible ? 'visible' : 'hidden'}`}>
                 <p>Job Title</p>
                 <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
                 <p>Employer</p>
@@ -21,6 +33,7 @@ function ExperienceSection() {
                 <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                 <p>Location</p>
                 <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+                <div ref={endOfFormRef}></div>
             </div>
         </div>
     )
