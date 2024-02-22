@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ApplicationForm from "./components/ApplicationForm";
 import CVPreview from "./components/CVPreview";
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   const [inputValues, setInputValues] = useState({
@@ -13,15 +13,15 @@ function App() {
         "linkedin": ""
     },
     "Education": {
-        "School": "",
-        "Degree": "",
-        "Graduation Date": ""
+        "school": "",
+        "degree": "",
+        "graduation-date": ""
     },
     "Experience": {
-        "Job Title": "",
+        "job-title": "",
         "employer": "",
-        "start Date": "",
-        "end Date": "",
+        "start-date": "",
+        "end-date": "",
         "location": ""
     }
   });

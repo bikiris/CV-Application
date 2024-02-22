@@ -1,0 +1,67 @@
+/* Resume Preview Styles */
+.resume-preview {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12px;
+    width: 595px;
+    height: 842px;
+    background-color: white;
+    color:  black;
+    padding: 20px;
+}
+
+.resume-preview p {
+    margin: 0;
+}
+
+.resume-preview h2 {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    margin: 0;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Contact info Styles */
+.resume-preview #name {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-preview .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info p::after {
+    content: "|";
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.contact-info p:last-child::after {
+    content: "";
+}
+
+/* Education Styles */
+#school {
+    font-weight: bold;
+}
+
+#degree {
+    font-style: italic;
+}
+
+/* Experience Styles */
+#employer {
+    font-weight: bold;
+}
+#job-title {
+    font-style: italic;
+}
