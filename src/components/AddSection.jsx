@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import AddField from './AddField';
+import '../styles/AddSection.css';
 
 const AddSection = ({ sectionName, fields, onInputChange }) => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     // creates ref at the end of the form allow to focus to the end of the form
     const endOfFormRef = useRef(null);
 
@@ -14,7 +15,7 @@ const AddSection = ({ sectionName, fields, onInputChange }) => {
     }, [isVisible]);
 
     return (
-        <div>
+        <div className='section'>
             <h2>{sectionName}</h2>
             <button onClick={() => setIsVisible(!isVisible)}>
                 {isVisible ? 'Hide' : 'Show'}

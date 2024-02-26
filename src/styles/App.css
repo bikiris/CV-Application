@@ -1,8 +1,9 @@
 .App {
     display: flex;
     justify-content: space-between;
+    margin: 0 3%;
 }
 
-.ApplicationForm, .preview {
+.Form, .resume-preview {
     width: 45%;
 }

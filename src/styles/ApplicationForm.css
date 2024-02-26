@@ -1,24 +1,8 @@
 .Form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+    align-items: center;
 }
 
-.Form > * {
-    /* Your CSS properties here */
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    flex: 0 0 auto;
-}
-
-.toggleable-content {
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    max-height: 1000px;
-    opacity: 1;
-}
-
-.toggleable-content.hidden {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-}
