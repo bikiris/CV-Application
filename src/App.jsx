@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ApplicationForm from "./components/ApplicationForm";
 import CVPreview from "./components/CVPreview";
+import JsPDF from "jspdf";
 import "./styles/App.css";
 
 function App() {
@@ -33,6 +34,13 @@ function App() {
     }));
   };
 
+  const downloadPDF = () => {
+    const report = new JsPDF('portrait', 'pt', 'a4');
+    report.html(document.querySelector('.resume-preview')).then(() => {
+      report.save("resume.pdf");
+    });
+ }
+
   return (
     <div className="App">
       <ApplicationForm onInputChange={handleInputChange} />
@@ -41,6 +49,7 @@ function App() {
         Education={inputValues["Education Information"]}
         Experience={inputValues["Experience Information"]}
       />
+      <button onClick={downloadPDF}>Download PDF</button>
     </div>
   );
 }
