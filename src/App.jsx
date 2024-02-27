@@ -16,14 +16,16 @@ function App() {
     "Education": {
         "school": "",
         "degree": "",
-        "graduation-date": ""
+        "graduation-date": "",
+        "description": ""
     },
     "Experience": {
         "job-title": "",
         "employer": "",
         "start-date": "",
         "end-date": "",
-        "location": ""
+        "location": "",
+        "description": ""
     }
   });
 
@@ -40,11 +42,11 @@ function App() {
     <div className="App">
       <Header />
       <div className="Main">
-        <ApplicationForm onInputChange={handleInputChange} />
+        <ApplicationForm inputValues={inputValues} onInputChange={handleInputChange} />
         <CVPreview
           General={inputValues["General Information"]}
-          Education={inputValues["Education Information"]}
-          Experience={inputValues["Experience Information"]}
+          Education={inputValues["Education"]}
+          Experience={inputValues["Experience"]}
         />
       </div>
     </div>

@@ -4,6 +4,16 @@ import '../styles/CVPreview.css';
 const CVPreview = ({ General = {}, Education = {}, Experience={} }) => {
 
     const isObjectEmpty = (obj) => Object.values(obj).every(x => (x === null || x === ''));
+
+    const descriptionToBulletPoints = (description) => {
+        const bulletPoints = description.split('\n').filter((line) => line.trim() !== '');
+        return (
+            <ul>
+                {bulletPoints.map((point, index) => <li key={index}>{point}</li>)}
+            </ul>
+        );
+    }
+
     return (
         <div className='resume-preview'>
             {!isObjectEmpty(General) && (
@@ -18,7 +28,7 @@ const CVPreview = ({ General = {}, Education = {}, Experience={} }) => {
                 </div>
             )}
             {!isObjectEmpty(Education) && (
-                 <div className='education'>
+                <div className='education'>
                     <h2>Education</h2>
                     <div className='education-info'>
                         <div className='row'>
@@ -28,8 +38,8 @@ const CVPreview = ({ General = {}, Education = {}, Experience={} }) => {
                         <div className='row'>
                             {Education.degree && <p id="degree">{Education.degree}</p>}
                         </div>
-                        
                     </div>
+                    {Education.description && descriptionToBulletPoints(Education.description)}
                 </div> 
             )}
             {!isObjectEmpty(Experience) && (
@@ -49,6 +59,7 @@ const CVPreview = ({ General = {}, Education = {}, Experience={} }) => {
                             {Experience.location && <p id="location">{Experience.location}</p>}
                         </div>
                     </div>
+                    {Experience.description && descriptionToBulletPoints(Experience.description)}
                 </div>  
             )}
 
