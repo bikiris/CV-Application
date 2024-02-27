@@ -14,12 +14,10 @@ const AddField = ({ value, onChange }) => {
 
     if (value.toUpperCase().includes("DATE")) {
         type = "date";
-    }else if (value.toUpperCase().includes("email")) {
+    }else if (value.toUpperCase().includes("EMAIL")) {
         type = "email";
-    }else if (value.toUpperCase().includes("phone")) {
+    }else if (value.toUpperCase().includes("PHONE")) {
         type = "tel";
-    }else {
-        type = "text";
     }
 
     

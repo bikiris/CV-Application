@@ -6,7 +6,6 @@ function ApplicationForm ({ onInputChange }) {
     return (
         <>
             <div className="Form">
-                <h1>Application Form</h1>
                 <AddSection sectionName={"General Information"} fields={["name", "email", "phone", "address", "linkedin"]} onInputChange={onInputChange} />
                 <AddSection sectionName={"Education Information"} fields={["school", "degree", "graduation-date"]} onInputChange={onInputChange}/>
                 <AddSection sectionName={"Experience Information"} fields={["job-title", "employer", "start-date", "end-date", "location"]} onInputChange={onInputChange}/>

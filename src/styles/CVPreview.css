@@ -1,9 +1,9 @@
 /* Resume Preview Styles */
 .resume-preview {
+    aspect-ratio: 1 / 1.4142;
     font-family: "Times New Roman", Times, serif;
     font-size: 12px;
-    width: 595px;
-    height: 842px;
+    min-width: 360px;
     background-color: white;
     color:  black;
     padding: 20px;
